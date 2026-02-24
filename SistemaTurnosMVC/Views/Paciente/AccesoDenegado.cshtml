@@ -1,0 +1,38 @@
+@model dynamic
+@{
+    ViewData["Title"] = "Acceso Denegado";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h1 class="text-danger display-4">
+                <i class="bi bi-x-circle-fill"></i> Acceso Denegado
+            </h1>
+            <p class="text-muted">Error 403 - Forbidden</p>
+            <hr />
+
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-5">
+                    <h2 class="mb-3">Lo sentimos</h2>
+                    <p class="lead">
+                        Su rol de <strong>Cliente</strong> no tiene permisos para acceder a esta funcionalidad. 
+                    </p>
+                    <p>
+                        Esta sección está reservada exclusivamente para usuarios con el rol de 
+                        <span class="badge bg-danger">Administrador</span>. 
+                    </p>
+
+                    <div class="d-flex justify-content-center gap-3 mt-4">
+                        <a asp-action="Index" class="btn btn-primary px-4">
+                            Volver al Listado
+                        </a>
+                        <a asp-controller="Login" asp-action="Logout" class="btn btn-outline-secondary px-4">
+                            Cerrar Sesión
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

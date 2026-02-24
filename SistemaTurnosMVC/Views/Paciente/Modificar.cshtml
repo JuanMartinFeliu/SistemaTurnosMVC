@@ -1,0 +1,73 @@
+@using SistemaTurnosMVC.ViewModels
+@model PacienteUpdateViewModel
+
+@{
+    ViewData[index: "Title"] = "Editar Paciente";
+}
+
+
+<form asp-controller="Paciente" asp-action="Modificar" method="post">
+    <input hidden asp-for="@Model.IdPaciente">
+    <div class="form-group">
+        <label asp-for="@Model.Nombre" class="control-label"></label>
+        <input asp-for="@Model.Nombre" class="form-control" />
+        <span asp-validation-for="@Model.Nombre" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Apellido" class="control-label"></label>
+        <input asp-for="@Model.Apellido" class="form-control" />
+        <span asp-validation-for="@Model.Apellido" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.DNI" class="control-label"></label>
+        <input asp-for="@Model.DNI" class="form-control" />
+        <span asp-validation-for="@Model.DNI" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.FechaNacimiento" class="control-label"></label>
+        <input asp-for="@Model.FechaNacimiento" class="form-control" />
+        <span asp-validation-for="@Model.FechaNacimiento" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Sexo" class="control-label"></label>
+        <select asp-for="Sexo" asp-items="@Model.ListaSexo" class="form-control">
+            <option value="">-- Seleccione un Sexo --</option>
+        </select>
+        <span asp-validation-for="Sexo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Telefono" class="control-label"></label>
+        <input asp-for="@Model.Telefono" class="form-control" />
+        <span asp-validation-for="@Model.Telefono" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Email" class="control-label"></label>
+        <input asp-for="@Model.Email" class="form-control" />
+        <span asp-validation-for="@Model.Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Direccion" class="control-label"></label>
+        <input asp-for="@Model.Direccion" class="form-control" />
+        <span asp-validation-for="@Model.Direccion" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ObraSocial" class="control-label"></label>
+        <select asp-for="ObraSocial" asp-items="@Model.ListaObraSocial" class="form-control">
+            <option value="">-- Seleccione un Genero --</option>
+        </select>
+        <span asp-validation-for="ObraSocial" class="text-danger"></span>
+    </div>
+    
+    <button type="submit" class="btn btn-primary mt-4">Editar</button>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

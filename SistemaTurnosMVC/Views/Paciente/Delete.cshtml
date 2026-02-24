@@ -1,0 +1,29 @@
+@using SistemaTurnosMVC.Models
+@model Paciente
+
+<div class="card shadow-sm mx-auto">
+    <div class="card-body text-center">
+        <h5 class="card-title mb-3 text-secondary">¿Estás seguro que querés eliminar este Paciente?</h5>
+
+        <ul class="list-group list-group-flush text-start mb-4">
+            <li class="list-group-item"><strong>ID:</strong> @Model.IdPaciente</li>
+            <li class="list-group-item"><strong>Nombre:</strong> @Model.Nombre</li>
+            <li class="list-group-item"><strong>Apellido:</strong> @Model.Apellido</li>
+            <li class="list-group-item"><strong>DNI:</strong> @Model.DNI</li>
+            <li class="list-group-item"><strong>Fecha de Nacimiento:</strong> @Model.FechaNacimiento</li>
+            <li class="list-group-item"><strong>Sexo:</strong> @Model.Sexo</li>
+            <li class="list-group-item"><strong>Telefono:</strong> @Model.Telefono</li>
+            <li class="list-group-item"><strong>Email:</strong> @Model.Email</li>
+            <li class="list-group-item"><strong>Direccion:</strong> @Model.Direccion</li>
+            <li class="list-group-item"><strong>Obra Social:</strong> @Model.ObraSocial</li>
+        </ul>
+
+        <form asp-controller="Paciente" asp-action="Delete" method="post">
+            <input hidden asp-for="@Model.IdPaciente">
+            <button type="submit" class="btn btn-danger px-4 mr-2">Eliminar</button>
+            <a asp-controller="Paciente" asp-action="Index" class="btn btn-secondary px-4">
+                Cancelar
+            </a>
+        </form>
+    </div>
+</div>

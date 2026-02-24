@@ -1,0 +1,28 @@
+@using SistemaTurnosMVC.Models
+@model Medico
+
+<div class="card shadow-sm mx-auto">
+    <div class="card-body text-center">
+        <h5 class="card-title mb-3 text-secondary">¿Estás seguro que querés eliminar este Medico?</h5>
+
+        <ul class="list-group list-group-flush text-start mb-4">
+            <li class="list-group-item"><strong>ID:</strong> @Model.IdMedico</li>
+            <li class="list-group-item"><strong>Nombre:</strong> @Model.Nombre</li>
+            <li class="list-group-item"><strong>Apellido:</strong> @Model.Apellido</li>
+            <li class="list-group-item"><strong>DNI:</strong> @Model.DNI</li>
+            <li class="list-group-item"><strong>Matricula:</strong> @Model.Matricula</li>
+            <li class="list-group-item"><strong>Especialidad:</strong> @Model.Especialidad</li>
+            <li class="list-group-item"><strong>Telefono:</strong> @Model.Telefono</li>
+            <li class="list-group-item"><strong>Email:</strong> @Model.Email</li>
+            <li class="list-group-item"><strong>Precio de la Consulta:</strong> @Model.PrecioConsulta</li>
+        </ul>
+
+        <form asp-controller="Medico" asp-action="Delete" method="post">
+            <input hidden asp-for="@Model.IdMedico">
+            <button type="submit" class="btn btn-danger px-4 mr-2">Eliminar</button>
+            <a asp-controller="Paciente" asp-action="Index" class="btn btn-secondary px-4">
+                Cancelar
+            </a>
+        </form>
+    </div>
+</div>

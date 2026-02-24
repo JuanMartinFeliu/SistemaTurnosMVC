@@ -1,0 +1,56 @@
+@model List<Medico>
+
+@{
+    ViewData["Title"] = "Listado de Medicos";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>Listado de Medicos</h1>
+        <a asp-action="Alta" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Nuevo Medico
+        </a>
+    </div>
+</div>
+
+    <table class="table table-striped table-hover border">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>DNI</th>
+                <th>Matricula</th>
+                <th>Especialidad</th>
+                <th>Telefono</th>
+                <th>Email</th>
+                <th>Precio Consulta</th>
+                <th class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.IdMedico</td>
+                    <td>@item.Nombre</td>
+                    <td>@item.Apellido</td>
+                    <td>@item.DNI</td>
+                    <td>@item.Matricula</td>
+                    <td>@item.Especialidad</td>
+                    <td>@item.Telefono</td>
+                    <td>@item.Email</td>
+                    <td>@item.PrecioConsulta</td>
+                    <td class="text-center">
+                        <a asp-action="Modificar" asp-route-id="@item.IdMedico" class="btn btn-primary btn-sm">
+                            Editar
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.IdMedico" class="btn btn-danger btn-sm">
+                            Eliminar
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
